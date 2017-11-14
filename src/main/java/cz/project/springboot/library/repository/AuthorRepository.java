@@ -9,12 +9,12 @@ import java.util.List;
 
 @Repository
 public interface AuthorRepository extends JpaRepository<Author, Long> {
-//    List<Author> findByFioContainingOrderByFio(String fio);
-//
-//    List<Author> findByFioContainingIgnoreCaseOrderByFio(String fio);
+    List<Author> findByFioContainingOrderByFio(String fio);
+
+    List<Author> findByFioContainingIgnoreCaseOrderByFio(String fio);
 
 
-    @Query(value="select a from Author a where a.fio like %?1", nativeQuery = true)
+    @Query("select a from Author a where a.fio like %?1")
     List<Author> findByFioEndsWith(String fio);
 //    List<Author> findByFioOrOrderByFioAsc(String fio);
 }

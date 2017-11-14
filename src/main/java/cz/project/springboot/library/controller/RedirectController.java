@@ -18,18 +18,19 @@ import java.util.List;
 @Log
 public class RedirectController {
 
-    @Autowired
-    private AuthorRepository authorRepository;
-    @Autowired
-    private BookRepository bookRepository;
+//    @Autowired
+//    private AuthorRepository authorRepository;
+//    @Autowired
+//    private BookRepository bookRepository;
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String baseUrlRedirect(HttpServletRequest request, HttpServletResponse response) {
 
-        List<Author> authorList = authorRepository.findAll();
-        List<Book> bookLiat=bookRepository.findAll();
+//        List<Author> authorList = authorRepository.findAll();
+//        List<Book> bookLiat=bookRepository.findAll();
 
-        return "ok";
+        // перенаправление на страницу индекс
+        return "redirect:" + request.getRequestURL().append("/index.xhtml").toString();
     }
 
 }
